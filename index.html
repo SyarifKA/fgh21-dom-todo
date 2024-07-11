@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <div class="calendar">
+            <div>
+                <div>
+                    <span>Tuesday, </span>
+                    <span>31st</span>
+                </div>
+                <div>August</div>
+            </div>
+            <div>
+                <span>5 </span>
+                <span>Tasks</span>
+            </div>
+        </div>
+        <div class="button" id="button-input">
+            <button>+</button>
+        </div>
+        <ul class="list-activity" id="list-activity">
+        </ul>
+    </section>
+
+    <section class="overlay hide">
+        <form class="input-list">
+            <div>
+                <span>Input Activity</span>
+            </div>
+            <div>
+                <input type="text" name="text">
+            </div>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
