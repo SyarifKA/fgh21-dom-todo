@@ -16,7 +16,14 @@ form.addEventListener('click', (e)=> {
     e.stopPropagation()
 })
 
-const data = []
+let data = []
+
+const dataConv = localStorage.getItem('abc')
+console.log(data)
+
+if (dataConv !== null) {
+    data = JSON.parse(dataConv)
+}
 
 function renderData() {
     dataItem.innerHTML=''
@@ -57,6 +64,7 @@ form.addEventListener('submit', event => {
         time: timeStamp,
         finish: false,
     })
+    window.localStorage.setItem('abc', JSON.stringify(data))
     form.reset()
     renderData()
 })
