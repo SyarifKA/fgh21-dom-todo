@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Storage</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
     <section class="container">
@@ -21,8 +21,11 @@
                 <span>Tasks</span>
             </div>
         </div>
-        <div class="button" id="button-input">
-            <button>+</button>
+        <div class="button">
+            <button class="add" id="button-input">+</button>
+            <button class="remove" id="button-delete">
+                <img src="/assets/recycle-bin.png" alt="Remove-icon">
+            </button>
         </div>
         <ul class="list-activity" id="list-activity">
         </ul>
@@ -41,6 +44,6 @@
             </div>
         </form>
     </section>
-    <script src="script.js"></script>
+    <script src="/assets/script.js"></script>
 </body>
 </html>

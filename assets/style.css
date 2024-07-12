@@ -73,6 +73,7 @@ body{
     display: flex;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     padding: 20px 20px;
     box-sizing: border-box;
     border-top: 1px solid grey;
@@ -101,12 +102,15 @@ body{
 
 .container .button{
     display: flex;
-    justify-content: center;
+    justify-content: end;
+    align-items: center;
     position: relative;
-    bottom: 50px;
+    bottom: 40px;
+    gap: 20px;
+    padding: 0 10px;
 }
 
-.container .button button{
+.container .button .add{
     width: 80px;
     height: 80px;
     border: none;
@@ -117,6 +121,23 @@ body{
     line-height: 80px;
     font-weight: lighter;
     background-color: salmon;
+}
+
+.container .button .remove{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    line-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.container .button .remove img{
+    width: 60%;
+    height: 60%;
 }
 
 .overlay{

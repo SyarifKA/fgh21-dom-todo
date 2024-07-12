@@ -3,6 +3,7 @@ const dataItem = document.getElementById('list-activity')
 const btnAdd = document.getElementById('button-input')
 const overlay = document.getElementsByClassName('overlay')
 const form = overlay.item(0).getElementsByTagName('form').item(0)
+const deleteItem = document.getElementById('button-delete')
 
 overlay.item(0).addEventListener('click', () => {
     overlay.item(0).classList.toggle('hide')
@@ -12,14 +13,18 @@ btnAdd.addEventListener('click', () => {
     overlay.item(0).classList.toggle('hide')
 })
 
+
 form.addEventListener('click', (e)=> {
     e.stopPropagation()
+})
+
+deleteItem.addEventListener('click', () => {
+    window.localStorage.removeItem('abc')
 })
 
 let data = []
 
 const dataConv = localStorage.getItem('abc')
-console.log(data)
 
 if (dataConv !== null) {
     data = JSON.parse(dataConv)
@@ -49,11 +54,15 @@ function renderData() {
         span2.textContent = timeHours
         label.appendChild(span2)
         
-        listItem.appendChild(cb)
-        listItem.appendChild(label)
-        dataItem.appendChild(listItem)
+        
+        if (span1.textContent !== '') {
+            listItem.appendChild(cb)
+            listItem.appendChild(label)
+            dataItem.appendChild(listItem)
+        }
     })
 }
+
 
 form.addEventListener('submit', event => {
     event.preventDefault()
@@ -64,7 +73,12 @@ form.addEventListener('submit', event => {
         time: timeStamp,
         finish: false,
     })
-    window.localStorage.setItem('abc', JSON.stringify(data))
+
+    if (text === '') {
+        window.alert('data harus diisi')
+    } else {
+        window.localStorage.setItem('abc', JSON.stringify(data))
+    }
     form.reset()
     renderData()
 })
