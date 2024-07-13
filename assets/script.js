@@ -5,6 +5,11 @@ const overlay = document.getElementsByClassName('overlay')
 const form = overlay.item(0).getElementsByTagName('form').item(0)
 const deleteItem = document.getElementById('button-delete')
 const autoInput = document.getElementById('text-input')
+const btnSave = document.getElementById('save')
+
+btnSave.addEventListener('click', () => {
+    overlay.item(0).classList.toggle('hide')
+})
 
 overlay.item(0).addEventListener('click', () => {
     overlay.item(0).classList.toggle('hide')
