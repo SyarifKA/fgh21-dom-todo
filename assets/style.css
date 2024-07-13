@@ -57,11 +57,8 @@ body{
 
 .container .list-activity{
     display: flex;
-    /* width: 100%; */
     flex-direction: column;
     margin-top: -40px;
-    /* padding: 0 50px; */
-    /* gap: 20px; */
     text-decoration: none;
     padding: 0;
     box-sizing: border-box;
@@ -91,6 +88,21 @@ body{
     width: 80%;
     display: flex;
     justify-content: space-between;
+}
+
+.container .list-activity > li > .edit-button{
+    width: 50px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(31, 71, 233);
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.container .list-activity > li > .edit-button:hover{
+    background-color: rgb(4, 41, 189);
+
 }
 
 .container .list-activity > li > input{

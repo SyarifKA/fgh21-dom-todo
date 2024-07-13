@@ -4,6 +4,7 @@ const btnAdd = document.getElementById('button-input')
 const overlay = document.getElementsByClassName('overlay')
 const form = overlay.item(0).getElementsByTagName('form').item(0)
 const deleteItem = document.getElementById('button-delete')
+const autoInput = document.getElementById('text-input')
 
 overlay.item(0).addEventListener('click', () => {
     overlay.item(0).classList.toggle('hide')
@@ -11,6 +12,7 @@ overlay.item(0).addEventListener('click', () => {
 
 btnAdd.addEventListener('click', () => {
     overlay.item(0).classList.toggle('hide')
+    autoInput.focus()
 })
 
 
@@ -20,6 +22,7 @@ form.addEventListener('click', (e)=> {
 
 deleteItem.addEventListener('click', () => {
     window.localStorage.removeItem('abc')
+    window.location.reload()
 })
 
 let data = []
@@ -53,11 +56,16 @@ function renderData() {
         const timeHours = new Date(e.time).getHours() > 12 ? new Date(e.time).getHours() - 12 + ':' + new Date(e.time).getMinutes() + ' PM' : new Date(e.time).getHours() + ":" + new Date(e.time).getMinutes() + ' AM'
         span2.textContent = timeHours
         label.appendChild(span2)
-        
+
+        const editBtn = document.createElement('button')
+        editBtn.id = 'edit-button'
+        editBtn.textContent = 'Edit'
+        editBtn.classList.add('edit-button')
         
         if (span1.textContent !== '') {
             listItem.appendChild(cb)
             listItem.appendChild(label)
+            listItem.appendChild(editBtn)
             dataItem.appendChild(listItem)
         }
     })
@@ -79,6 +87,7 @@ form.addEventListener('submit', event => {
     } else {
         window.localStorage.setItem('abc', JSON.stringify(data))
     }
+    autoInput.focus()
     form.reset()
     renderData()
 })
