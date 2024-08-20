@@ -38,12 +38,15 @@ if (dataConv !== null) {
     data = JSON.parse(dataConv)
 }
 
+
 function renderData() {
     dataItem.innerHTML=''
     data.forEach((e, index) => {
         const listItem = document.createElement('li')
         const cb = document.createElement('input')
         cb.type = 'checkbox'
+        cb.classList.add('checkbox') 
+        cb.setAttribute('name', 'checkbox') 
         cb.id = 'list' + `${index + 1}`
         if (e.finish) {
             cb.checked = true
@@ -61,7 +64,7 @@ function renderData() {
         const timeHours = new Date(e.time).getHours() > 12 ? new Date(e.time).getHours() - 12 + ':' + new Date(e.time).getMinutes() + ' PM' : new Date(e.time).getHours() + ":" + new Date(e.time).getMinutes() + ' AM'
         span2.textContent = timeHours
         label.appendChild(span2)
-
+        
         const editBtn = document.createElement('button')
         editBtn.id = 'edit-button'
         editBtn.textContent = 'Edit'
@@ -98,3 +101,9 @@ form.addEventListener('submit', event => {
 })
 
 renderData()
+// const abc = document.getElementsByName('checkbox').item(0)
+// console.log(abc)
+// abc.forEach(event => {
+//     console.log(name)
+// })
+// console.log(abc.item(0))
